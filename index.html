@@ -189,5 +189,45 @@ footer {
     </div>
   </footer>
   <script src="js/script.js"></script>
+
+  <script>
+
+    // Smooth scroll for nav links
+document.querySelectorAll('nav .nav-links a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if(href.startsWith("#")){
+      e.preventDefault();
+      document.querySelector(href).scrollIntoView({behavior: "smooth"});
+    }
+  });
+});
+
+// Simple contact form validation
+document.getElementById('contactForm')?.addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const message = form.message.value.trim();
+  const msgDiv = document.getElementById('form-message');
+  msgDiv.textContent = '';
+  msgDiv.style.color = 'red';
+
+  if(!name || !email || !message){
+    msgDiv.textContent = "Please fill in all fields.";
+    return;
+  }
+  if(!/\S+@\S+\.\S+/.test(email)){
+    msgDiv.textContent = "Please enter a valid email.";
+    return;
+  }
+
+  // Simulate submission
+  msgDiv.style.color = 'green';
+  msgDiv.textContent = "Thank you for your message! We'll be in touch.";
+  form.reset();
+});
+  </script>
 </body>
 </html>
