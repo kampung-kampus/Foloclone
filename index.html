@@ -13,6 +13,7 @@
 body { font-family: 'Segoe UI', Arial, sans-serif; background: #fafaf6; color:  #23321c;line-height: 1.6; }
 img { max-width: 100%; }
 
+ 
 .hero {
   background: url('/Foloclone/docs/hero-bg.jpg') center/cover no-repeat;
   min-height: 50vh;
@@ -20,8 +21,12 @@ img { max-width: 100%; }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 75%;                    /* Makes it 3/4 of page width */
+  max-width: 75%;                /* Ensures it doesn't exceed 75% */
+  margin: 40px auto;            /* 40px top/bottom, auto centers horizontally */
+  border-radius: 12px;           /* Optional: rounded corners for box effect */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);  /* Optional: shadow for depth */
 }
-
 .logo { height: 85px; margin: 18px; }
 
 nav {
